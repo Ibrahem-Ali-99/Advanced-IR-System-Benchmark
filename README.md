@@ -1,59 +1,30 @@
-# Advanced-Information-Retrieval-System-for-CORD-19
+# Information Retrieval System
+## Overview
+- This project implements a comprehensive Information Retrieval (IR) system with a focus on advanced retrieval and re-ranking techniques. Built using the PyTerrier framework, it provides a robust foundation for classic and neural-based retrieval models, evaluated with standard IR metrics.
+Key Features & Technical Overview
+Classic IR Foundation
 
-Overview
+- Built a robust baseline using the PyTerrier framework, with an inverted index supporting standard retrieval models like TF-IDF and BM25.
 
-This project implements a comprehensive Information Retrieval (IR) system with a focus on advanced retrieval and re-ranking techniques. Built using the PyTerrier framework, it provides a robust foundation for classic and neural-based retrieval models, evaluated with standard IR metrics.
+## Advanced Query Expansion
 
-Key Features
+- Implemented and benchmarked a classic pseudo-relevance feedback model, RM3.
+Engineered a custom neural query expansion technique using Sentence-BERT (SBERT) embeddings to find semantically similar terms from initial documents and enrich the original query.
 
+## Two-Stage Neural Re-ranking Pipeline
 
-
-
-
-Classic IR Foundation: Establishes a robust baseline with PyTerrier, featuring an inverted index and standard retrieval models (TF-IDF, BM25).
-
-
-
-Advanced Query Expansion:
-
-
-
-
-
-Implements RM3, a classic pseudo-relevance feedback model.
+- Developed a first-pass retrieval stage (using BM25) to generate an initial set of candidate documents.
+- Designed and implemented two powerful BERT-based re-ranking models for the second stage:
+### MonoBERT (Pointwise): A cross-encoder that individually scores the relevance of each query-document pair for fine-grained ranking.
+### DuoBERT (Pairwise): A more advanced model that learns relative preferences by comparing pairs of documents (doc_i, doc_j) for a given query, improving ranking accuracy.
 
 
 
-Introduces a custom neural query expansion using Sentence-BERT (SBERT) embeddings to identify semantically similar terms from initial documents, enhancing query richness.
+## Rigorous Evaluation
 
+- Conducted a thorough performance analysis comparing all implemented systems (BM25, TF-IDF, RM3, SBERT-Expansion, MonoBERT, DuoBERT) using standard IR metrics like nDCG, MAP, and P@10.
 
+## Interactive Demonstration
 
-Two-Stage Neural Re-ranking Pipeline:
+- Deployed the full system into a user-friendly Gradio web interface, allowing for real-time queries and side-by-side comparisons of the different retrieval models.
 
-
-
-
-
-First-pass retrieval using BM25 to generate candidate documents.
-
-
-
-Second-stage re-ranking with two BERT-based models:
-
-
-
-
-
-MonoBERT (Pointwise): A cross-encoder scoring individual query-document relevance for precise ranking.
-
-
-
-DuoBERT (Pairwise): A model comparing document pairs (doc_i, doc_j) per query to refine ranking accuracy.
-
-
-
-Rigorous Evaluation: Compares performance across BM25, TF-IDF, RM3, SBERT-Expansion, MonoBERT, and DuoBERT using metrics like nDCG, MAP, and P@10.
-
-
-
-Interactive Demonstration: Deployed as a Gradio web interface for real-time queries, enabling side-by-side model comparisons.
