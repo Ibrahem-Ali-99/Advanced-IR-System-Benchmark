@@ -1,4 +1,4 @@
-# Information Retrieval System
+Information Retrieval System
 ## Overview
 - This project implements a comprehensive Information Retrieval (IR) system with a focus on advanced retrieval and re-ranking techniques. Built using the PyTerrier framework, it provides a robust foundation for classic and neural-based retrieval models, evaluated with standard IR metrics.
 Key Features & Technical Overview
